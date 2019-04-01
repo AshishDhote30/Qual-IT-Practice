@@ -1,0 +1,5 @@
+url=${base.url}
+environment=${default.env}
+profile=${default.profile}
+default.browser=chrome
+
