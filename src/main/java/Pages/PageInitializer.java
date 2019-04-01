@@ -40,8 +40,8 @@ public class PageInitializer {
     static protected PurchasePage purchasePage;
 
 
-    public static final String USERNAME = "";
-    public static final String ACCESS_KEY = "";
+    public static final String USERNAME = "Ashish30";
+    public static final String ACCESS_KEY = "0d567847-3e55-4b4d-adba-09b7d874aba9";
     public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
 
 
@@ -188,7 +188,7 @@ public class PageInitializer {
                 cap = DesiredCapabilities.chrome();
                 cap.setCapability("platform", "Windows 7");
                 cap.setCapability("version", "60.0");
-                cap.setCapability("name", "Neon_Web_Automation_Chrome");
+                cap.setCapability("name", "Airport_Web_Automation_Chrome");
                 this.driver = new RemoteWebDriver(new URL(URL), cap);
                 break;
 
@@ -197,7 +197,7 @@ public class PageInitializer {
                 cap = DesiredCapabilities.safari();
                 cap.setCapability("platform", "macOS 10.13");
                 cap.setCapability("version", "11.1");
-                cap.setCapability("name", "Neon_Web_Automation_Safari");
+                cap.setCapability("name", "Airport_Web_Automation_Safari");
                 this.driver = new RemoteWebDriver(new URL(URL), cap);
                 break;
             case "sauceedge":
@@ -205,7 +205,7 @@ public class PageInitializer {
                 cap = DesiredCapabilities.edge();
                 cap.setCapability("platform", "Windows 10");
                 cap.setCapability("version", "16.16299");
-                cap.setCapability("name", "Neon_Web_Automation_Edge");
+                cap.setCapability("name", "Airport_Web_Automation_Edge");
                 this.driver = new RemoteWebDriver(new URL(URL), cap);
                 break;
 
