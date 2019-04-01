@@ -141,13 +141,13 @@ public class PageInitializer {
                 option.addArguments("--disable-infobars");
                 Map<String, Object> prefs = new HashMap<>();
                 // Enable Flash
-                prefs.put("profile.default_content_setting_values.plugins", 1);
+                /*prefs.put("profile.default_content_setting_values.plugins", 1);
                 prefs.put("profile.content_settings.plugin_whitelist.adobe-flash-player", 1);
                 prefs.put("profile.content_settings.exceptions.plugins.*,*.per_resource.adobe-flash-player", 1);
                 // Hide save credentials prompt
                 prefs.put("credentials_enable_service", false);
                 prefs.put("profile.password_manager_enabled", false);
-                option.setExperimentalOption("prefs", prefs);
+                option.setExperimentalOption("prefs", prefs);*/
                 this.driver = new ChromeDriver(option);
                 break;
             case "edge":
