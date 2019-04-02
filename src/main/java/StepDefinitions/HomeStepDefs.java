@@ -19,19 +19,19 @@ public class HomeStepDefs extends PageInitializer {
         getScreenShot();
     }
 
-    @Given("^I open Auckland Airport website$")
-    public void i_open_Auckland_Airport_website() {
+    @Given("^user open Auckland Airport website$")
+    public void user_open_Auckland_Airport_website() {
         getPage("https://themall.aucklandairport.co.nz");
     }
 
-    @Then("^I validate title and URL$")
-    public void i_validate_title_and_URL() {
+    @Then("^user validate title and URL$")
+    public void user_validate_title_and_URL() {
         assertTrue("AKL Airport home page title is not correct", getPageTitle().contains("Shop duty free and tax free online | The Mall | Auckland Airport"));
         assertTrue("AKL Airport URL returned is correct", getPageURL().contains("https://themall.aucklandairport.co.nz/"));
     }
 
-    @And("^I try to login using \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void iTryToLogin(String username, String password) {
+    @And("^user try to login using \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void userTryToLogin(String username, String password) {
         homePage.doSignIn(username, password);
     }
 
@@ -45,4 +45,17 @@ public class HomeStepDefs extends PageInitializer {
         System.out.println(homePage.getErrorMessage());
         //assertTrue(homePage.getErrorMessage().contains(errorExpected));
     }
+
+    @Then("^user clicks on my account$")
+    public void user_clicks_on_my_account() {
+        homePage.clickOnAccount();
+    }
+
+    @Then("^user sign out$")
+    public void user_sign_out()  {
+        homePage.clickOnSignOut();
+        assertTrue("Sign In button is not displayed", homePage.isSignInDisplayed());
+    }
+
+
 }

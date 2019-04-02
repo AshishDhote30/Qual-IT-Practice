@@ -44,6 +44,11 @@ public class HomePage extends PageInitializer {
     @FindBy(xpath = "//p[contains(text(),'Sorry, we do not have a Strata Club Membership wit')]")
     public static WebElement signInErrorMessage;
 
+    @FindBy(xpath = "//span[@class='platformNavigationAccountButtonLabel']")
+    public static WebElement myAccount;
+
+    @FindBy(xpath = "//span[contains(text(),'Sign out')]")
+    public static WebElement signOutButton;
 
     public void doSignIn(java.lang.String _email, String _password) {
         waitAndClick(SignInButton);
@@ -59,4 +64,18 @@ public class HomePage extends PageInitializer {
     public  String getErrorMessage(){
         return signInErrorMessage.getText();
     }
+
+    public void clickOnAccount(){
+        waitAndClick(myAccount);
+    }
+
+    public void clickOnSignOut(){
+        waitAndClick(signOutButton);
+    }
+
+    public boolean isSignInDisplayed(){
+        return SignInButton.isDisplayed();
+    }
+
+
 }

@@ -1,7 +1,7 @@
 Feature: Sample purchase from Auckland Airport Shopping App
 
   Background: Open AKL Airport Website
-    Given I open Auckland Airport website
+    Given user open Auckland Airport website
 
   @PurchaseWine
   Scenario: A user purchase Spirit and Wine
@@ -13,7 +13,7 @@ Feature: Sample purchase from Auckland Airport Shopping App
     Then the item "White Walker 1L" should be listed in the cart
 
 
-  @purchaseWineBySearching
+  @PurchaseWineBySearch
   Scenario: a user searches for a particular wine and add to cart
     And the user input "Johnnie Walker Black 200ml" and click search button
     And looks for the item "Johnnie Walker Black 200ml" then selects it

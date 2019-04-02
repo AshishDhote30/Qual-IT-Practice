@@ -76,6 +76,15 @@ public class Utils extends PageInitializer {
         js.executeScript("arguments[0].click();", element);
     }
 
+    protected boolean checkIfElementIsPresent(WebElement element){
+        try {
+            element.getSize();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public static void waitAndClick(WebElement element) {
         WebDriverWait wait = new WebDriverWait(getDriver(), 30);
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
