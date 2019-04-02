@@ -13,3 +13,5 @@ test_chrome:
 test_firefox:
 	mvn install -Dbrowser=firefox -Pprod -Dsuitename=test_firefox -Dcucumber.options="--plugin json:target/cucumber/test_firefox/firefox.json --tags @Title"
 
+test_saucechrome:
+	mvn install -Dbrowser=saucechrome -Pprod -Dsuitename=test_saucechrome -Dcucumber.options="--plugin json:target/cucumber/test_saucechrome/saucechrome.json --tags @Title"

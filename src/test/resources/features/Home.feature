@@ -29,3 +29,4 @@ Feature: Test the Sign In functionality
     Examples:
       | username   | password |
       | aa@abc.com | test123  |
+      |12@xy.com  |test101|
