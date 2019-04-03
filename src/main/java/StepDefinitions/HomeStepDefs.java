@@ -43,7 +43,7 @@ public class HomeStepDefs extends PageInitializer {
     @And("^I should see following alert$")
     public void iShouldSeeFollowingAlert(String errorExpected) {
         System.out.println(homePage.getErrorMessage());
-        //assertTrue(homePage.getErrorMessage().contains(errorExpected));
+        assertTrue(homePage.getErrorMessage().contains(errorExpected));
     }
 
     @Then("^user clicks on my account$")

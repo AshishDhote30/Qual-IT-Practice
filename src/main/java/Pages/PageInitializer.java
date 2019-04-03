@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.fail;
 
 
-
 public class PageInitializer {
 
     private static WebDriver driver;
@@ -58,12 +57,11 @@ public class PageInitializer {
     private void setSystemProperties() {
         String path = System.getProperty("user.dir") + "/drivers/";
         if (System.getProperty("os.name").contains("Windows 10")) {
-            System.setProperty("webdriver.edge.driver", path + "win/MicrosoftWebDriver.exe");
-        }
-        if (System.getProperty("os.name").contains("Win")) {
             System.setProperty("webdriver.chrome.driver", path + "win/chromedriver.exe");
             System.setProperty("webdriver.ie.driver", path + "win/IEDriverServer.exe");
-            System.setProperty("webdriver.firefox.marionette", path + "win/geckodriver.exe");
+//          System.setProperty("webdriver.firefox.marionette", path + "win/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", path + "win/geckodriver.exe");
+            System.setProperty("webdriver.edge.driver", path + "win/MicrosoftWebDriver.exe");
         } else if (System.getProperty("os.name").contains("Mac")) {
             System.setProperty("webdriver.chrome.driver", path + "mac/chromedriver");
             System.setProperty("webdriver.gecko.driver", path + "mac/geckodriver");
@@ -93,10 +91,6 @@ public class PageInitializer {
         return driver;
     }
 
-    public void setDriver(WebDriver WB) {
-        this.driver = WB;
-    }
-
     public void getPage(String _url) {
         Log.info("Getting URL: " + _url);
         driver.get(_url);
@@ -121,7 +115,6 @@ public class PageInitializer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     private WebDriver InitiateDriver() throws Exception {
@@ -158,7 +151,7 @@ public class PageInitializer {
                 }
                 break;
             case "ie":
-                if (System.getProperty("os.name").contains("Win")) {
+                if (System.getProperty("os.name").contains("Windows 10")) {
                     cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
                     cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
                     this.driver = new InternetExplorerDriver(cap);
@@ -173,7 +166,8 @@ public class PageInitializer {
                     this.driver = new FirefoxDriver(profile);
                 } else {
                     cap = DesiredCapabilities.firefox();
-                    cap.setCapability("platform", "Windows 7");
+//                  cap.setCapability("platform", "Windows 7");
+                    cap.setCapability("marionette", true);
                     this.driver = new FirefoxDriver(cap);
                 }
                 break;
@@ -210,7 +204,7 @@ public class PageInitializer {
                 break;
 
             case "headless":
-               ChromeOptions opt = new ChromeOptions();
+                ChromeOptions opt = new ChromeOptions();
                 opt.addArguments("headless");
                 opt.addArguments("window-size=1200x600");
                 opt.setExperimentalOption("useAutomationExtension", false);

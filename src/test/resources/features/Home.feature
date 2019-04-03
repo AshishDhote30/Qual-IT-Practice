@@ -29,4 +29,3 @@ Feature: Test the Sign In functionality
     Examples:
       | case             | username            | password |
       | Invalid username | aa@abc.com          | test123  |
-      | Invalid Password | test@mailinator.com | test101  |

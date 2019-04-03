@@ -62,6 +62,7 @@ public class HomePage extends PageInitializer {
     }
 
     public  String getErrorMessage(){
+        waitForElementVisibility(signInErrorMessage,7);
         return signInErrorMessage.getText();
     }
 

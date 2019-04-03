@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import static Utils.Utils.waitAndClick;
+import static Utils.Utils.waitForElementVisibility;
 
 public class PurchasePage extends PageInitializer {
 
@@ -36,7 +37,7 @@ public class PurchasePage extends PageInitializer {
 
     @FindBy(xpath = "//div[@class='cartItemProductTitle cartItemProductTitleEditable']")
     ////a[contains(text(),'White Walker 1L')]
-    public static WebElement cartBottle;
+    public static WebElement cartProduct;
 
     @FindBy(xpath = "//input[@placeholder='Search products, brands & more']")
     public static WebElement searchBox;
@@ -44,8 +45,23 @@ public class PurchasePage extends PageInitializer {
     @FindBy(xpath = " //a[@title='Johnnie Walker Black 200ml']")
     public static WebElement searchBottle;
 
+    @FindBy(xpath = "//div[@id='cmsAklTileGroup0']//a[3]")   //div[@id='cmsAklTileGroup0']//a[3]//div[1]
+    public static WebElement technology;
+
+    @FindBy(xpath = "//a[@title='Apple iPhone XS 64GB Space Grey']")
+    public static WebElement phone;
+
+    @FindBy(xpath = "//div[@class='cartItemPrice']")
+    public static WebElement cartItemPrice;
+
+    @FindBy(xpath = "//a[@title='Apple iPhone XS 64GB Space Grey']//strong[@class='priceValue'][contains(text(),'$1,696.00')]")
+    public static WebElement phonePrice;
 
 
+    public void clickOnTech(){
+        waitForElementVisibility(technology,5);
+        waitAndClick(technology);
+    }
 
     public void clickOnSpirit() {
         waitAndClick(SpiritsAndWine);
@@ -53,6 +69,10 @@ public class PurchasePage extends PageInitializer {
 
     public void selectBottle() {
         waitAndClick(bottle);
+    }
+
+    public void selectPhone(){
+        waitAndClick(phone);
     }
 
     public void addToCart() {
@@ -68,16 +88,27 @@ public class PurchasePage extends PageInitializer {
     }
 
     public String getPurchaseText() {
+        waitForElementVisibility(purchaseText,7);
         return purchaseText.getText();
+    }
+
+    public String getCartItemPrice(){
+        return cartItemPrice.getText();
+    }
+
+    public String getPhonePrice(){
+        return phonePrice.getText();
     }
 
     public void goToCart() {
         waitAndClick(gotoCart);
     }
 
-    public String getCartBottleName() {
-        return cartBottle.getText();
+    public String getCartProductName() {
+        return cartProduct.getText();
     }
+
+
 
     public void searchProduct(String product){
         waitAndClick(searchBox);
