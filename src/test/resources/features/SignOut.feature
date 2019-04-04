@@ -1,5 +1,6 @@
 Feature: Test the Sign Out functionality
 
+  @Homepage
   @SignOut
   Scenario Outline: Verify sign out
     Given user open Auckland Airport website

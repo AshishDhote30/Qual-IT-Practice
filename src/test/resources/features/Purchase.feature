@@ -3,6 +3,7 @@ Feature: Sample purchase from Auckland Airport Shopping App
   Background: Open AKL Airport Website
     Given user open Auckland Airport website
 
+  @Homepage
   @PurchaseWine
   Scenario: A user purchase Spirit and Wine
     And the user clicks the "wine and spirit" link
@@ -12,7 +13,7 @@ Feature: Sample purchase from Auckland Airport Shopping App
     When the user clicks his cart
     Then the item "White Walker 1L" should be listed in the cart
 
-
+  @Homepage
   @PurchaseWineBySearch
   Scenario: a user searches for a particular wine and add to cart
     And the user input "Johnnie Walker Black 200ml" and click search button
@@ -31,12 +32,3 @@ Feature: Sample purchase from Auckland Airport Shopping App
     When the user clicks his cart
     Then the item "Apple iPhone XS 64GB Space Grey" should be listed in the cart
     And the cart price should display the correct amount for this purchase
-
-  @PurchaseBeauty
-  Scenario: a user purchases a particular beauty product
-    Given the user clicks the Beauty link
-    And looks for the beauty product "CK One Deodrant Stick 85g (U)" then selects it
-    When the user adds the Beauty to cart then selects "departure" as pickup from AKL international airport
-    Then the message "You’ve added this item to your cart for pick up departing from AKL International Airport" is displayed
-    When the user clicks his cart
-    Then the item "CK One Deodrant Stick 85g (U)" should be listed in the cart
