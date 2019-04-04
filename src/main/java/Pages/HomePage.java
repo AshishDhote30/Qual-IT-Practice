@@ -75,6 +75,7 @@ public class HomePage extends PageInitializer {
     }
 
     public boolean isSignInDisplayed(){
+        waitForElementVisibility(SignInButton, 10);
         return SignInButton.isDisplayed();
     }
 
